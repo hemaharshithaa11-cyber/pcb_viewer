@@ -3,56 +3,120 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IMU System | 3D PCB Viewer</title>
-
-  <script type="module"
-    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMU System | Interactive PCB Viewer</title>
+  <meta name="description" content="Interactive PCB design viewer for the IMU System. Explore the PCB layout, 3D board, stackup, and bill of materials.">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #111318;
-      color: white;
+      color: #f4f4f5;
     }
 
     header {
-      padding: 20px 28px;
-      background: #20232a;
-      border-bottom: 1px solid #444;
+      padding: 24px 20px;
+      text-align: center;
+      background: #191c23;
+      border-bottom: 1px solid #30343d;
     }
 
-    h1 {
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    header p {
       margin: 0;
-      font-size: 24px;
+      color: #b4bac5;
+      font-size: 14px;
     }
 
-    p {
-      color: #c6cbd4;
-    }
-
-    model-viewer {
+    main {
       width: 100%;
-      height: 75vh;
-      background: #d0d0d0;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .viewer-heading {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .viewer-container {
+      width: 100%;
+      min-height: 500px;
+      height: min(78vh, 850px);
+      border: 1px solid #373c47;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #20232b;
+    }
+
+    .altium-ecad-viewer {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      max-width: none !important;
+      max-height: none !important;
+      border: none !important;
+    }
+
+    footer {
+      padding: 18px;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 22px;
+      }
+
+      main {
+        padding: 10px;
+      }
+
+      .viewer-container {
+        height: 72vh;
+        min-height: 500px;
+      }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>IMU System — 3D PCB Viewer</h1>
-    <p>Biomedical Engineering | Interactive 3D Model</p>
+    <h1>IMU System — PCB Design</h1>
+    <p>Interactive PCB Layout · 3D Visualization · Stackup · Bill of Materials</p>
   </header>
 
-  <model-viewer
-    src="./imu_system.glb"
-    camera-controls
-    auto-rotate
-    shadow-intensity="1"
-    alt="3D IMU system PCB">
-  </model-viewer>
+  <main>
+    <h2 class="viewer-heading">Explore the PCB</h2>
+
+    <div class="viewer-container">
+      <div
+        class="altium-ecad-viewer"
+        data-project-token="iewOo%2F1%2BNU6rXnP3XidIya8NAQ%3D%3D"
+        data-enabled-views="PCB,3D,STACKUP,BOM"
+        data-active-view="PCB"
+        data-theme="dark"
+        style="border-radius: 0; height: 100%; overflow: hidden;">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Interactive design powered by Altium 365 Viewer.
+  </footer>
+
+  <script src="https://viewer.altium.com/client/static/js/embed.js?ver=639281184721829311"></script>
 </body>
 </html>
