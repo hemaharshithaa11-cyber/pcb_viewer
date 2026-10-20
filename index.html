@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IMU System | 3D PCB Viewer</title>
+
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111318;
+      color: white;
+    }
+
+    header {
+      padding: 20px 28px;
+      background: #20232a;
+      border-bottom: 1px solid #444;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    p {
+      color: #c6cbd4;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 75vh;
+      background: #d0d0d0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>IMU System — 3D PCB Viewer</h1>
+    <p>Biomedical Engineering | Interactive 3D Model</p>
+  </header>
+
+  <model-viewer
+    src="./imu_system.glb"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    alt="3D IMU system PCB">
+  </model-viewer>
+</body>
+</html>
